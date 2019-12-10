@@ -1,0 +1,21 @@
+h2{
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .jumbotron {
+      background-color: lightblue !important;
+  }
+  
+  .green {
+    background-color: green;
+  }
+  
+  .container {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  img {
+    padding: 10px;
+  }
