@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>E-commerce EquipoBoo</title>
+  <title>E-commerce</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
-    /* Remove the navbar's default rounded borders and increase the bottom margin */
+
     .navbar {
       margin-bottom: 50px;
       border-radius: 0;
     }
 
-    /* Remove the jumbotron's default bottom margin */
      .jumbotron {
       margin-bottom: 0;
     }
@@ -75,7 +74,7 @@
 
 <div class="jumbotron">
   <div class="container text-center">
-    <h1>Online Store</h1>
+    <h1 id="home">Online Store</h1>
     <p>Mission, Vission & Values</p>
   </div>
 </div>
@@ -98,9 +97,9 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><button type="link" class="btn btn-link btn-lg" data-toggle="modal" data-target="#logIn">Log in</button></li>
-        <li><button type="link" class="btn btn-link btn-lg" data-toggle="modal" data-target="#signIn">Sign in</button></li>
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="" data-toggle="modal" data-target="#logIn">Log in</a></li>
+        <li><a href="" data-toggle="modal" data-target="#signIn">Sign in</a></li>
+        <li><a href="ecommerce-profile.html"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
         <li><a href="./ecommerce-cart.html"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>
@@ -197,7 +196,7 @@
 </div>
 
 <div class="container">
-        <h2 id="faqs">FAQs</h2>
+        <h2 id="faqs" class="text-center">FAQs</h2>
         <div class="panel-group" id="accordion">
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -237,19 +236,45 @@
           </div>
         </div>
 </div>
-
-<div class="container">
-        <h2 id="contact">Contact</h2>
-        <div>
-            <div class="well">
-                <form class="form-inline">Get deals:
-                    <input type="email" class="form-control" size="50" placeholder="Email Address">
-                    <button type="button" class="btn btn-danger">Sign Up</button>
-                </form>
+<!-- Contact Section -->
+<h2 class="text-center" id="contact">CONTACT</h2>
+<div class="container bg-grey well">
+    <div class="row">
+        <div class="col-sm-5">
+        <p>Contact us and we'll get back to you within 24 hours.</p>
+        <p><span class="glyphicon glyphicon-map-marker"></span> Chicago, US</p>
+        <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
+        <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
+        </div>
+        <div class="col-sm-7">
+        <div class="row">
+            <div class="col-sm-6 form-group">
+            <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+            </div>
+            <div class="col-sm-6 form-group">
+            <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
             </div>
         </div>
+        <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+        <div class="row">
+            <div class="col-sm-12 form-group">
+            <button class="btn btn-default pull-right" type="submit">Send</button>
+            </div>
+        </div>
+        </div>
+    </div>
     </div>
 <footer class="container-fluid text-center">
+    <div class="container">
+            <div>
+                <div class="well">
+                    <form class="form-inline">Get deals:
+                        <input type="email" class="form-control" size="50" placeholder="Email Address">
+                        <button type="button" class="btn btn-danger">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
   <p>EquipoFoo</p>
 </footer>
 
