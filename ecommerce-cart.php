@@ -26,7 +26,7 @@
     }
 
     /*Cart*/
-    
+
     .table>tbody>tr>td, .table>tfoot>tr>td{
     vertical-align: middle;
      }
@@ -47,26 +47,26 @@
       	.actions .btn-danger {
       		float:right;
       	}
-      	table#cart thead { 
-              display: none; 
+      	table#cart thead {
+              display: none;
         }
-      	table#cart tbody td { 
-              display: block; 
-              padding: .6rem; 
+      	table#cart tbody td {
+              display: block;
+              padding: .6rem;
               min-width:320px;
         }
-      	table#cart tbody tr td:first-child { 
-              background: #333; 
-              color: #fff; 
+      	table#cart tbody tr td:first-child {
+              background: #333;
+              color: #fff;
         }
       	table#cart tbody td:before {
-      		content: attr(data-th); 
+      		content: attr(data-th);
             font-weight: bold;
-      		display: inline-block; 
+      		display: inline-block;
             width: 8rem;
       	}
       	table#cart tfoot td {
-            display:block; 
+            display:block;
         }
       	table#cart tfoot td .btn {
             display:block;
@@ -95,14 +95,14 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="ecommerce-index.html#home">Home</a></li>
-        <li><a href="ecommerce-products.html">Products</a></li>
-        <li><a href="ecommerce-index.html#faqs">FAQs</a></li>
-        <li><a href="ecommerce-index.html#contact">Contact</a></li>
+        <li><a href="ecommerce-index.php#home">Home</a></li>
+        <li><a href="ecommerce-products.php">Products</a></li>
+        <li><a href="ecommerce-index.php#faqs">FAQs</a></li>
+        <li><a href="ecommerce-index.php#contact">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
-        <li><a href="ecommerce-profile.html"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="ecommerce-profile.php"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
         <li class="active"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>
@@ -151,7 +151,7 @@
                     <td class="text-center"><strong>Total 99.99</strong></td>
                 </tr>
                 <tr>
-                    <td><a href="./ecommerce-products.html" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                    <td><a href="./ecommerce-products.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
                     <td colspan="2" class="hidden-xs"></td>
                     <td class="hidden-xs text-center"><strong>Total $99.99</strong></td>
                     <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>

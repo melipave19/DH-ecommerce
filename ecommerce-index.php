@@ -92,15 +92,15 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
-        <li><a href="ecommerce-products.html">Products</a></li>
+        <li><a href="ecommerce-products.php">Products</a></li>
         <li><a href="#faqs">FAQs</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="" data-toggle="modal" data-target="#logIn">Log in</a></li>
         <li><a href="" data-toggle="modal" data-target="#signIn">Sign in</a></li>
-        <li><a href="ecommerce-profile.html"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-        <li><a href="./ecommerce-cart.html"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+        <li><a href="ecommerce-profile.php"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="./ecommerce-cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>
   </div>
@@ -174,13 +174,13 @@
           <!-- Wrapper for slides -->
           <div class="carousel-inner" style="margin-bottom: 20px;">
             <div class="item active">
-              <img src="../imagenes/imagen1.jpg" alt="notebook" style="width:100%;">
+              <img src="imagenes/imagen1.jpg" alt="notebook" style="width:100%;">
             </div>
             <div class="item">
-              <img src="../imagenes/imagen2.jpg" alt="computer" style="width:100%;">
+              <img src="imagenes/imagen2.jpg" alt="computer" style="width:100%;">
             </div>
             <div class="item">
-              <img src="../imagenes/imagen3.jpg" alt="laptop" style="width:100%;">
+              <img src="imagenes/imagen3.jpg" alt="laptop" style="width:100%;">
             </div>
           </div>
           <!-- Left and right controls -->

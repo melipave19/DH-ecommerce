@@ -18,7 +18,7 @@
      .jumbotron {
       margin-bottom: 0;
     }
-    
+
     /* Add a gray background color and some padding to the footer */
     footer {
       background-color: #f2f2f2;
@@ -47,16 +47,16 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-              <li><a href="ecommerce-index.html">Home</a></li>
+              <li><a href="ecommerce-index.php">Home</a></li>
               <li class="active"><a href="#">Products</a></li>
-              <li><a href="ecommerce-index.html#faqs">FAQs</a></li>
-              <li><a href="ecommerce-index.html#contact">Contact</a></li>
+              <li><a href="ecommerce-index.php#faqs">FAQs</a></li>
+              <li><a href="ecommerce-index.php#contact">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#">Log in</a></li>
               <li><a href="#">Sign in</a></li>
-              <li><a href="ecommerce-profile.html"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-              <li><a href="ecommerce-cart.html"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+              <li><a href="ecommerce-profile.php"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+              <li><a href="ecommerce-cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
             </ul>
           </div>
         </div>

@@ -25,20 +25,20 @@
     }
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
     .row.content {height: 1500px}
-    
+
     /* Set gray background color and 100% height */
     .sidenav {
       background-color: #f1f1f1;
       height: 100%;
     }
-        
+
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
       .sidenav {
         height: auto;
         padding: 15px;
       }
-      .row.content {height: auto;} 
+      .row.content {height: auto;}
     }
   </style>
 </head>
@@ -61,15 +61,15 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="ecommerce-index.html#home">Home</a></li>
-                    <li><a href="ecommerce-products.html">Products</a></li>
-                    <li><a href="ecommerce-index.html#faqs">FAQs</a></li>
-                    <li><a href="ecommerce-index.html#contact">Contact</a></li>
+                    <li><a href="ecommerce-index.php#home">Home</a></li>
+                    <li><a href="ecommerce-products.php">Products</a></li>
+                    <li><a href="ecommerce-index.php#faqs">FAQs</a></li>
+                    <li><a href="ecommerce-index.php#contact">Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
                     <li class="active"><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-                    <li><a href="ecommerce-cart.html"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                    <li><a href="ecommerce-cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
                 </ul>
                 </div>
             </div>
@@ -91,12 +91,12 @@
                 </ul>
               </div>
             </nav>
-              
+
             <div class=" container panel panel-default">
               <div class="panel-body"> <h3>Rick Fort</h3>
                 <img src="imagenes/profile.png" class="img-circle" height="75" width="75" alt="Avatar">
               </div>
-            
+
             </div>
             <footer class="container-fluid text-center">
               <p>EquipoFoo</p>
