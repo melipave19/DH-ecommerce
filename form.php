@@ -1,44 +1,85 @@
 <?php
-
-
 // Validar campo Email:
 if(isset ($_POST [ 'email'])) {
 if (empty ($_POST  [ 'email'])) {
-$errores [ 'email'] [ ] = "Este campo es obligatorio";
+$errores [ 'email'][ ] = "Este campo es obligatorio";
 }
 if(!filter_var($_POST [ 'email'], FILTER_VALIDATE_EMAIL)) {
 $errores ['email'][]= "Debes ingresar un email valido";
 }
 }
+
 //Validar campo Last Name
-if(isset ($_POST [ 'name'])) {
-if (empty ($_POST  [ 'name'])) {
-$errores ['name'] [ ] = "Este campo es obligatorio";
-}
-if($_POST['password'] <6 ) {
-$errores ['name'][] = "Este campo debe tener como minimo 6 caracteres";
+if(isset ($_POST[ 'name'])) {
+if (empty ($_POST[ 'name'])) {
+$errores ['name'][ ] = "Este campo es obligatorio";
 }
 }
 
 //Validar campo password
 if(isset ($_POST [ 'password'])) {
-if (empty ($_POST  [ 'password'])) {
-$errores [ 'password'] [ ] = "Este campo es obligatorio";
+if (empty ($_POST[ 'password'])) {
+$errores['password'][] = "Este campo es obligatorio";
 }
-if(strlen($_POST['password']) < 6 ) {
-$errores ['password'][] = "Tu contraseña debe tener al menos 6 caracteres";
+if(strlen($_POST['password']) <= 6 ) {
+$errores['password'][] = "Tu contraseña debe tener al menos 6 caracteres";
 }
 }
 
 //Validar campo repassword
 if(isset ($_POST [ 'repassword'])) {
-if (empty ($_POST  [ 'repassword'])) {
-$errores [ 'repassword'] [ ] = "Este campo es obligatorio";
+if (empty ($_POST[ 'repassword'])) {
+$errores ['repassword'][ ] = "Este campo es obligatorio";
 }
 if($_POST['password'] != $_POST['repassword']) {
 $errores ['repassword'][] = "las contraseñas deben coincidir";
 }
 }
+
+//Validar campo perfil
+if($_FILES && $_FILES['perfil']['error']==0)
+{
+  $nombreArchivo = $_FILES['perfil']['name'];
+  $extension = pathinfo($nombreArchivo, PATHINFO_EXTENSION);
+  $extension = strtolower($extension);
+  if($extension != "jpg" || $extension != "png" || $extension != "jpeg")
+  {
+    $errores['perfil'][] = "Las extensiones válidas son JPG y PNG.";
+  }
+}
+
+//Guardar usuarios en Json
+if($_POST) {
+  $nombre = $_POST['name'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  $hash = password_hash($password, PASSWORD_DEFAULT);
+
+  //obtener los datos del $archivo
+  $file = $_FILES['perfil']['tmp_name'];
+
+  $usuario = [
+    'name' => $nombre,
+    'email' => $email,
+    'password' => $hash,
+    'archivo' => $nombreArchivo
+  ];
+
+  $archivo = file_get_contents('usuarios.json');
+  $usuarios = json_decode($archivo, true);
+  $usuarios[] = $usuario;
+
+  //obtengo el ultimo id agregado
+  $ultimo = count($usuarios)-1;
+
+  // guardo el archivo
+  move_uploaded_file($file, 'imagenes/usuarios/'.$ultimo.'.'.$extension);
+
+  //actualizo el archivo usuarios.txt
+  $json = json_encode($usuarios);
+  file_put_contents('usuarios.json',$json);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -174,7 +215,7 @@ $errores ['repassword'][] = "las contraseñas deben coincidir";
           </div>
           <div class="modal-body">
             <div class="wrapper">
-            <form class="form-signin" method="POST">
+            <form class="form-signin" method="post" enctype="multipart/form-data">
                 <input type="text" class="form-control" name="email" placeholder="Email Address" autofocus="" value="<?php echo $_POST['email'] ?>" />
                 <?php
                 if(isset($errores ['email'])) {
@@ -194,7 +235,7 @@ $errores ['repassword'][] = "las contraseñas deben coincidir";
                 <input type="password" class="form-control" name="password" placeholder="Password" />
                 <?php
                 if(isset($errores ['password'])) {
-                foreach($errores [ 'password' ] as $error) {
+                foreach($errores ['password'] as $error) {
                 echo "<small class='text-danger'>" . $error . "</small>";
                 }
                 }
@@ -202,12 +243,14 @@ $errores ['repassword'][] = "las contraseñas deben coincidir";
                 <input type="password" class="form-control" name="repassword" placeholder="Confirm Password"/>
                 <?php
                 if(isset($errores['repassword'])) {
-                foreach($errores [ 'repassword' ] as $error) {
+                foreach($errores ['repassword'] as $error) {
                 echo "<small class='text-danger'>" . $error . "</small>";
                 }
                 }
                  ?>
-
+                <label>Foto de perfil: </label>
+                <input type="file" name="perfil">
+                <br>
                 <label class="checkbox">
                     <input type="checkbox" value="rememberMe" id="rememberMe" name="rememberMe"> Remember me
                 </label>
