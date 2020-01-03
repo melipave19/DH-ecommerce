@@ -98,8 +98,58 @@
               </div>
 
             </div>
-            <footer class="container-fluid text-center">
-              <p>EquipoFoo</p>
-            </footer>
+            <div class="container-fixed">
+                <!--- Footer ------------>
+                <footer class="footer-bs">
+                    <div class="row">
+                    	<div class="col-md-3 footer-brand animated fadeInLeft">
+                        	<h2>E-commerce</h2>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>© 2019 BS3 UI Kit, All rights reserved</p>
+                        </div>
+                    	<div class="col-md-4 footer-nav animated fadeInUp">
+                        	<h4>Menu —</h4>
+                        	<div class="col-md-6">
+                                <ul class="pages">
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">Products</a></li>
+                                    <li><a href="#">FAQs</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </div>
+                        	<div class="col-md-6">
+                                <ul class="list">
+                                    <li><a href="#">Sign in</a></li>
+                                    <li><a href="#">Log in</a></li>
+                                    <li><a href="#">Your account</a></li>
+                                    <li><a href="#">Cart</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    	<div class="col-md-2 footer-social animated fadeInDown">
+                        	<h4>Follow Us</h4>
+                        	<ul>
+                            	<li><a href="#">Facebook</a></li>
+                            	<li><a href="#">Twitter</a></li>
+                            	<li><a href="#">Instagram</a></li>
+                            </ul>
+                        </div>
+                    	<div class="col-md-3 footer-ns animated fadeInRight">
+                        	<h4>Newsletter</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                            <p>
+                                <div class="input-group">
+                                  <input type="text" class="form-control" placeholder="Search for...">
+                                  <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+                                  </span>
+                                </div><!-- /input-group -->
+                             </p>
+                        </div>
+                    </div>
+                </footer>
+                <section style="text-align:center; margin:10px auto;"><p>Designed by <a href="">EquipoFoo</a></p></section>
+
+            </div>
 </body>
 </html>
