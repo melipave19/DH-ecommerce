@@ -1,4 +1,15 @@
 <?php
+if(isset($_POST['rememberMe']))
+{
+  $rememberMe = 'on';
+}
+else {
+  $rememberMe = 'off';
+}
+
+$nombreArchivo = "";
+$extension = "";
+
 // Validar campo Email:
 if(isset ($_POST [ 'email'])) {
 if (empty ($_POST  [ 'email'])) {
@@ -37,19 +48,44 @@ $errores ['repassword'][] = "las contraseñas deben coincidir";
 }
 
 //Validar campo perfil
-if($_FILES && $_FILES['perfil']['error']==0)
+if (isset($_FILES [ 'perfil']))
 {
-  $nombreArchivo = $_FILES['perfil']['name'];
-  $extension = pathinfo($nombreArchivo, PATHINFO_EXTENSION);
-  $extension = strtolower($extension);
-  if($extension != "jpg" || $extension != "png" || $extension != "jpeg")
+  if(empty($_FILES [ 'perfil']))
   {
-    $errores['perfil'][] = "Las extensiones válidas son JPG y PNG.";
+    $errores['perfil'][] = "Este campo es obligatorio";
+  }
+  if($_FILES && $_FILES['perfil']['error']==0)
+  {
+    $nombreArchivo = $_FILES['perfil']['name'];
+    $extension = pathinfo($nombreArchivo, PATHINFO_EXTENSION);
+    $extension = strtolower($extension);
+    if($extension != "jpg" || $extension != "png" || $extension != "jpeg")
+    {
+      $errores['perfil'][] = "Las extensiones válidas son JPG y PNG.";
+    }
   }
 }
 
 //Guardar usuarios en Json
 if($_POST) {
+  if(isset($_POST['email-LogIn']))
+  {
+    $emailLogIn = $_POST['email-LogIn'];
+    $pass = $_POST['password-LogIn'];
+
+    //cargar $archivo
+    $archivoLogIn = file_get_contents('usuarios.json');
+    $usuariosLogIn = json_decode($archivoLogIn, true);
+
+    foreach ($usuariosLogIn as $key => $value) {
+      if($emailLogIn == $value['email'])
+      {
+        echo "".password_verify($pass,$value['password']);
+      }
+    }
+  }
+if(isset($_POST['email']))
+{
   $nombre = $_POST['name'];
   $email = $_POST['email'];
   $password = $_POST['password'];
@@ -78,7 +114,21 @@ if($_POST) {
   //actualizo el archivo usuarios.txt
   $json = json_encode($usuarios);
   file_put_contents('usuarios.json',$json);
+
+  //recordar usuarios
+  if($rememberMe == "on")
+  {
+    $cookie_name = "email";
+    $cookie_value = $_POST["email"];
+
+    setcookie($cookie_name,$cookie_value,time()+3600, "/");
+    echo "Hola ".$_COOKIE["email"];
+
+  }
 }
+}
+
+
 
 ?>
 <!DOCTYPE html>
@@ -158,16 +208,16 @@ if($_POST) {
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="ecommerce-products.html">Products</a></li>
-        <li><a href="#faqs">FAQs</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li class=""><a href="ecommerce-index.php">Home</a></li>
+        <li><a href="ecommerce-products.php">Products</a></li>
+        <li><a href="ecommerce-index.php#faqs">FAQs</a></li>
+        <li><a href="ecommerce-index.php#contact">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="" data-toggle="modal" data-target="#logIn">Log in</a></li>
         <li><a href="" data-toggle="modal" data-target="#signIn">Sign in</a></li>
-        <li><a href="ecommerce-profile.html"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-        <li><a href="./ecommerce-cart.html"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+        <li><a href="ecommerce-profile.php"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="./ecommerce-cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>
   </div>
@@ -184,9 +234,23 @@ if($_POST) {
             </div>
             <div class="modal-body">
               <div class="wrapper">
-              <form class="form-signin">
-                  <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
-                  <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
+              <form class="form-signin" method="POST">
+                <input type="text" class="form-control" name="email-LogIn" placeholder="Email Address" autofocus="" value="<?php if($_POST) { echo $_POST['email']; }?>" />
+                <?php
+                if(isset($errores ['email-LogIn'])) {
+                foreach($errores [ 'email-LogIn' ] as $error) {
+                echo "<small class='text-danger'>" . $error . "</small>";
+                }
+                }
+                 ?>
+                <input type="password" class="form-control" name="password-LogIn" placeholder="Password" />
+                <?php
+                if(isset($errores ['password-LogIn'])) {
+                foreach($errores ['password-LogIn'] as $error) {
+                echo "<small class='text-danger'>" . $error . "</small>";
+                }
+                }
+                  ?>
                   <label class="checkbox">
                       <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
                   </label>
@@ -216,7 +280,7 @@ if($_POST) {
           <div class="modal-body">
             <div class="wrapper">
             <form class="form-signin" method="post" enctype="multipart/form-data">
-                <input type="text" class="form-control" name="email" placeholder="Email Address" autofocus="" value="<?php echo $_POST['email'] ?>" />
+                <input type="text" class="form-control" name="email" placeholder="Email Address" autofocus="" value="<?php if($_POST) { echo $_POST['email']; }?>" />
                 <?php
                 if(isset($errores ['email'])) {
                 foreach($errores [ 'email' ] as $error) {
@@ -224,7 +288,7 @@ if($_POST) {
                 }
                 }
                  ?>
-                <input type="text" class="form-control" name="name" placeholder="Last Name"  autofocus="" />
+                <input type="text" class="form-control" name="name" placeholder="Last Name"  autofocus="" value="<?php if($_POST) { echo $_POST['name']; }?> " />
                 <?php
                 if(isset($errores ['name'])) {
                 foreach($errores [ 'name' ] as $error) {
