@@ -142,27 +142,27 @@ require 'footer.php';
             	<h4>Menu —</h4>
             	<div class="col-md-6">
                     <ul class="pages">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="ecommerce-index.php">Home</a></li>
+                        <li><a href="ecommerce-products.php">Products</a></li>
+                        <li><a href="ecommerce-index.php#faqs">FAQs</a></li>
+                        <li><a href="ecommerce-index.php#contact">Contact</a></li>
                     </ul>
                 </div>
             	<div class="col-md-6">
                     <ul class="list">
-                        <li><a href="#">Sign in</a></li>
-                        <li><a href="#">Log in</a></li>
-                        <li><a href="#">Your account</a></li>
-                        <li><a href="#">Cart</a></li>
+                        <li><a href="ecommerce-index.php#signIn">Sign in</a></li>
+                        <li><a href="ecommerce-index.php#logIn">Log in</a></li>
+                        <li><a href="ecommerce-profile.php">Your account</a></li>
+                        <li><a href="ecommerce-cart.php">Cart</a></li>
                     </ul>
                 </div>
             </div>
         	<div class="col-md-2 footer-social animated fadeInDown">
             	<h4>Follow Us</h4>
             	<ul>
-                	<li><a href="#">Facebook</a></li>
-                	<li><a href="#">Twitter</a></li>
-                	<li><a href="#">Instagram</a></li>
+                	<li><a href="https://www.facebook.com/">Facebook</a></li>
+                	<li><a href="https://twitter.com/">Twitter</a></li>
+                	<li><a href="https://www.instagram.com/">Instagram</a></li>
                 </ul>
             </div>
         	<div class="col-md-3 footer-ns animated fadeInRight">
@@ -182,6 +182,5 @@ require 'footer.php';
     <section style="text-align:center; margin:10px auto;"><p>Designed by <a href="">EquipoFoo</a></p></section>
 
 </div>
-
 </body>
 </html>
