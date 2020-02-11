@@ -65,6 +65,10 @@ body{
               <div class="panel-body"> <h3>Rick Fort</h3>
                 <img src="imagenes/profile.png" class="img-circle" height="75" width="75" alt="Avatar">
               </div>
+              <ul>
+                <li><a href="ecommerce-listProducts.php">Listado de productos</a></li>
+              </ul>
+
 
             </div>
             <div class="container-fixed">
