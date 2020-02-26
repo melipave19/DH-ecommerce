@@ -61,30 +61,9 @@ $equipos = $equipo->getEquipos($baseDatos);
 
 
  ?>
- <form class="agregarEquipo" action="" method="post">
-   <input type="text" name="nombre" value="">
-   <label for="nombre">Nombre del Equipo</label>
-   <input type="text" name="descripcion" value="">
-   <label for="descripcion">Descripcion</label>
-   <input type="text" name="categoria" value="">
-   <label for="categoria">Categoria</label>
-   <input type="text" name="marca" value="">
-   <label for="marca">Marca</label>
-   <input type="text" name="precio" value="">
-   <label for="precio">Precio</label>
-   <input type="text" name="pantalla" value="">
-   <label for="pantalla">Tamaño de pantalla</label>
-   <input type="text" name="discoDuro" value="">
-   <label for="discoDuro">Disco duro</label>
-   <input type="text" name="stock" value="">
-   <label for="stock">En stock</label>
-   <input type="text" name="proveedor" value="">
-   <label for="proveedor">Proveedor</label>
-   <input type="checkbox" name="oferta" value="Si">
-   <input type="checkbox" name="oferta" value="No">
-   <label for="oferta">esta en oferta?</label>
- </form>
-<style>
+
+ <style>
+
  body{
    background-color:  #ecf4fd ;
  }
@@ -132,7 +111,7 @@ $equipos = $equipo->getEquipos($baseDatos);
             <option value="0">Seleccione:</option>
             <?php
             foreach ($categorias as $key => $value) { ?>
-                <option value= "<?php echo $value['idCategoria']?>"> <?php echo $value['nombreCategoria']?></option>;
+                <option value= "<?php echo $value['id']?>"> <?php echo $value['nombre_categoria']?></option>;
             <?php } ?>
     </select>
     <label for="">Marca:</label>
@@ -140,7 +119,7 @@ $equipos = $equipo->getEquipos($baseDatos);
             <option value="0">Seleccione:</option>
             <?php
             foreach ($marcas as $key => $value) { ?>
-                <option value= "<?php echo $value["idMarca"]?>"> <?php echo $value['nombreMarca']?></option>;
+                <option value= "<?php echo $value["id"]?>"> <?php echo $value['nombre_marca']?></option>;
             <?php } ?>
     </select>
     <label for="">Precio: </label>
@@ -156,7 +135,7 @@ $equipos = $equipo->getEquipos($baseDatos);
             <option value="0">Seleccione:</option>
             <?php
               foreach ($proveedores as $key => $value) { ?>
-                <option value= "<?php echo $value['idProveedor']?>"> <?php echo $value["razonSocial"]?></option>;
+                <option value= "<?php echo $value['id']?>"> <?php echo $value["razon_social"]?></option>;
             <?php } ?>
     </select>
     <label for="">Está en oferta?</label>
@@ -170,9 +149,9 @@ $equipos = $equipo->getEquipos($baseDatos);
       if(isset($_GET["accion"]) && $_GET["accion"]=="modificar") { ?>
       <form class="" action="./ecommerce-listProducts.php" method="post">
       <label for="">ID del equipo:</label>
-      <input type="text" name="idEquipo" value="<?php echo $equipoAModificar["idEquipo"]?>" readonly>
+      <input type="text" name="idEquipo" value="<?php echo $equipoAModificar["id"]?>" readonly>
       <label for="">Nombre del equipo:</label>
-      <input type="text" name="nombre" value="<?php echo $equipoAModificar["nombreEquipo"]?>">
+      <input type="text" name="nombre" value="<?php echo $equipoAModificar["nombre_equipo"]?>">
       <label for="">Descripción:</label>
       <input type="text" name="descripcion" value="<?php echo $equipoAModificar["descripcion"]?>">
       <label for="">Categoria:</label>
@@ -180,7 +159,7 @@ $equipos = $equipo->getEquipos($baseDatos);
               <option value="0">Seleccione:</option>
               <?php
               foreach ($categorias as $key => $value) { ?>
-                  <option value= "<?php echo $value['idCategoria']?>" <?php if($equipoAModificar['categoria']===$value['idCategoria']) { ?> selected="selected" <?php } ?>><?php echo $value['nombreCategoria']?></option>;
+                  <option value= "<?php echo $value['id']?>" <?php if($equipoAModificar['id_categoria']===$value['id']) { ?> selected="selected" <?php } ?>><?php echo $value['nombre_categoria']?></option>;
               <?php } ?>
       </select>
       <label for="">Marca:</label>
@@ -188,27 +167,27 @@ $equipos = $equipo->getEquipos($baseDatos);
               <option value="0">Seleccione:</option>
               <?php
               foreach ($marcas as $key => $value) { ?>
-                  <option value= "<?php echo $value["idMarca"]?>" <?php if($equipoAModificar['marca']===$value['idMarca']) { ?> selected="selected" <?php } ?>> <?php echo $value['nombreMarca']?></option>;
+                  <option value= "<?php echo $value["id"]?>" <?php if($equipoAModificar['id_marca']===$value['id']) { ?> selected="selected" <?php } ?>> <?php echo $value['nombre_marca']?></option>;
               <?php } ?>
       </select>
       <label for="">Precio: </label>
       <input type="text" name="precio" value="<?php echo $equipoAModificar["precio"]?>">
       <label for="">Tamaño de la pantalla (pulgadas):</label>
-      <input type="text" name="tamanioPantalla" value="<?php echo $equipoAModificar["tamañoPantalla"]?>">
+      <input type="text" name="tamanioPantalla" value="<?php echo $equipoAModificar["tamaño_pantalla"]?>">
       <label for="">Disco Duro (GB):</label>
-      <input type="text" name="discoDuro" value="<?php echo $equipoAModificar["discoDuro"]?>">
+      <input type="text" name="discoDuro" value="<?php echo $equipoAModificar["disco_duro"]?>">
       <label for="">Stock:</label>
-      <input type="text" name="stockDisponible" value="<?php echo $equipoAModificar["stockDisponible"]?>">
+      <input type="text" name="stockDisponible" value="<?php echo $equipoAModificar["stock_disponible"]?>">
       <label for="">Proveedor</label>
       <select name="proveedor">
               <option value="0">Seleccione:</option>
               <?php
                 foreach ($proveedores as $key => $value) { ?>
-                  <option value= "<?php echo $value['idProveedor']?>" <?php if($equipoAModificar['proveedor']===$value['idProveedor']) { ?> selected="selected" <?php } ?>> <?php echo $value["razonSocial"]?></option>;
+                  <option value= "<?php echo $value['id']?>" <?php if($equipoAModificar['id_proveedor']===$value['id']) { ?> selected="selected" <?php } ?>> <?php echo $value["razon_social"]?></option>;
               <?php } ?>
       </select>
       <label for="">Está en oferta?</label>
-      <input type="checkbox" name="check" value="1" <?php if($equipoAModificar['habilitado']==1) {?>checked<?php } ?>>Si<br>
+      <input type="checkbox" name="check" value="1" <?php if($equipoAModificar['esta_en_oferta']==1) {?>checked<?php } ?>>Si<br>
       <input type="submit" name="submitMod" value="Realizar cambio">
     	</form>
       <br>;
@@ -237,23 +216,23 @@ $equipos = $equipo->getEquipos($baseDatos);
    <tbody>
      <?php foreach ($equipos as $key) { ?>
      <tr>
-       <td><?=$key["idEquipo"]?></td>
-       <td><?=$key["nombreEquipo"]?></td>
+       <td><?=$key["id"]?></td>
+       <td><?=$key["nombre_equipo"]?></td>
        <td><?=$key["descripcion"]?></td>
-       <td><?php foreach ($categorias as $keyCat => $valueCat) { if($key["categoria"] == $valueCat["idCategoria"]) { echo $valueCat["nombreCategoria"]; } }?></td>
-       <td><?php foreach ($marcas as $keyMar => $valueMar) { if($key["marca"] == $valueMar["idMarca"]) { echo $valueMar["nombreMarca"]; } }?></td>
+       <td><?php foreach ($categorias as $keyCat => $valueCat) { if($key["id_categoria"] == $valueCat["id"]) { echo $valueCat["nombre_categoria"]; } }?></td>
+       <td><?php foreach ($marcas as $keyMar => $valueMar) { if($key["id_marca"] == $valueMar["id"]) { echo $valueMar["nombre_marca"]; } }?></td>
        <td><?=$key["precio"]?></td>
-       <td><?=$key["tamañoPantalla"]?></td>
-       <td><?=$key["discoDuro"]?></td>
-       <td><?=$key["stockDisponible"]?></td>
-       <td><?php foreach ($proveedores as $keyProv => $valueProv) { if($key["proveedor"] == $valueProv["idProveedor"]) { echo $valueProv["razonSocial"]; } }?></td>
-       <td><?php if($key["estaEnOferta"]==1) { echo "Si";} else { echo "No";}?></td>
+       <td><?=$key["tamaño_pantalla"]?></td>
+       <td><?=$key["disco_duro"]?></td>
+       <td><?=$key["stock_disponible"]?></td>
+       <td><?php foreach ($proveedores as $keyProv => $valueProv) { if($key["id_proveedor"] == $valueProv["id"]) { echo $valueProv["razon_social"]; } }?></td>
+       <td><?php if($key["esta_en_oferta"]==1) { echo "Si";} else { echo "No";}?></td>
        <td><?php if($key["habilitado"]==1) { echo "Si";} else { echo "No";}?></td>
-       <td> <a href="./ecommerce-listProducts.php?accion=modificar&idEquipo=<?=$key["idEquipo"]?>">Modificar</a></td>
+       <td> <a href="./ecommerce-listProducts.php?accion=modificar&idEquipo=<?=$key["id"]?>">Modificar</a></td>
        <td> <?php if($key["habilitado"] == 0) { ?>
-         <a href="./ecommerce-listProducts.php?accion=darAlta&idEquipo=<?=$key["idEquipo"]?>">Dar alta</a>
+         <a href="./ecommerce-listProducts.php?accion=darAlta&idEquipo=<?=$key["id"]?>">Dar alta</a>
        <?php } else { ?>
-        <a href="./ecommerce-listProducts.php?accion=darBaja&idEquipo=<?=$key["idEquipo"]?>">Dar baja</a> <?php } ?>
+        <a href="./ecommerce-listProducts.php?accion=darBaja&idEquipo=<?=$key["id"]?>">Dar baja</a> <?php } ?>
       </td>
     </tr>
   <?php } ?>

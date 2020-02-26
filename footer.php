@@ -288,7 +288,7 @@ if(isset($_POST['email']))
                 }
                 }
                  ?>
-                <input type="text" class="form-control" name="name" placeholder="Last Name"  autofocus="" value="<?php if($_POST) { echo $_POST['name']; }?> " />
+                <input type="text" class="form-control" name="name" placeholder="Nombre"  autofocus="" value="<?php if($_POST) { echo $_POST['name']; }?> " />
                 <?php
                 if(isset($errores ['name'])) {
                 foreach($errores [ 'name' ] as $error) {
