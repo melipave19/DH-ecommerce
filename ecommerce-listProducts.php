@@ -61,29 +61,6 @@ $equipos = $equipo->getEquipos($baseDatos);
 
 
  ?>
- <form class="agregarEquipo" action="" method="post">
-   <input type="text" name="nombre" value="">
-   <label for="nombre">Nombre del Equipo</label>
-   <input type="text" name="descripcion" value="">
-   <label for="descripcion">Descripcion</label>
-   <input type="text" name="categoria" value="">
-   <label for="categoria">Categoria</label>
-   <input type="text" name="marca" value="">
-   <label for="marca">Marca</label>
-   <input type="text" name="precio" value="">
-   <label for="precio">Precio</label>
-   <input type="text" name="pantalla" value="">
-   <label for="pantalla">Tamaño de pantalla</label>
-   <input type="text" name="discoDuro" value="">
-   <label for="discoDuro">Disco duro</label>
-   <input type="text" name="stock" value="">
-   <label for="stock">En stock</label>
-   <input type="text" name="proveedor" value="">
-   <label for="proveedor">Proveedor</label>
-   <input type="checkbox" name="oferta" value="Si">
-   <input type="checkbox" name="oferta" value="No">
-   <label for="oferta">esta en oferta?</label>
- </form>
 <style>
  body{
    background-color:  #ecf4fd ;
