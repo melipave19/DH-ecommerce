@@ -117,7 +117,7 @@ class Equipo{
 
   public function darBaja($connect,$idEquipo)
   {
-    $sql = "update equipo set habilitado=0 WHERE idEquipo= :idEquipo";
+    $sql = "update equipo set habilitado=0 WHERE id= :idEquipo";
     $stmt = $connect->prepare($sql);
     $stmt->bindValue(':idEquipo', $idEquipo);
     $stmt->execute();
@@ -125,14 +125,14 @@ class Equipo{
 
   public function darAlta($connect,$idEquipo)
   {
-    $sql = "update equipo set habilitado=1 WHERE idEquipo= :idEquipo";
+    $sql = "update equipo set habilitado=1 WHERE id= :idEquipo";
     $stmt = $connect->prepare($sql);
     $stmt->bindValue(':idEquipo', $idEquipo);
     $stmt->execute();
   }
 
   public function modificar($connect, $equipo){
-            $modificar=$connect->prepare('UPDATE equipo SET nombreEquipo=:nombre, descripcion=:descripcion, categoria=:categoria, marca=:marca, precio=:precio, tamañoPantalla=:tamanioPantalla, discoDuro=:discoDuro, stockDisponible=:stockDisponible, proveedor=:proveedor, estaEnOferta=:estaEnOferta  WHERE idEquipo=:idEquipo');
+            $modificar=$connect->prepare('UPDATE equipo SET nombre_equipo=:nombre, descripcion=:descripcion, id_categoria=:categoria, id_marca=:marca, precio=:precio, tamaño_pantalla=:tamanioPantalla, disco_duro=:discoDuro, stock_disponible=:stockDisponible, id_proveedor=:proveedor, esta_en_oferta=:estaEnOferta  WHERE id=:idEquipo');
             $modificar->bindValue(':idEquipo',$equipo->getId());
             $modificar->bindValue(':nombre',$equipo->getNombre());
             $modificar->bindValue(':descripcion',$equipo->getDescripcion());
@@ -148,7 +148,7 @@ class Equipo{
 }
 
 public function buscar($connect, $idEquipo){
-  $buscar = $connect->prepare('select * from equipo WHERE idEquipo = :idEquipo');
+  $buscar = $connect->prepare('select * from equipo WHERE id = :idEquipo');
   $buscar->bindValue(':idEquipo', $idEquipo);
   $buscar->execute();
   return $buscar->fetch(PDO::FETCH_ASSOC);

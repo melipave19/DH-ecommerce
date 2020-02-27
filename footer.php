@@ -221,5 +221,3 @@ if(isset($_POST['email']))
     </div>
   </div>
 </nav>
-
-</div>
